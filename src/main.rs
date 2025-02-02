@@ -109,9 +109,8 @@ impl Tokenizer {
     }
 }
 
+#[cfg(test)]
 mod tests {
-    use itertools::Itertools;
-
     use super::*;
 
     #[test]
@@ -137,7 +136,6 @@ mod tests {
         };
 
         parser.parse_json()
-        // Ok(())
     }
 }
 
@@ -206,6 +204,7 @@ impl<I: Iterator<Item = Token>> Parser<I> {
 }
 
 fn main() -> Result<()> {
-    println!("Hello, world!");
+    let unparsed = format!("[1,2,3]");
+    let tokenizer = Tokenizer::new(unparsed);
     Ok(())
 }
